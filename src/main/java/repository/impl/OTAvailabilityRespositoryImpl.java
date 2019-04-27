@@ -33,21 +33,28 @@ public class OTAvailabilityRespositoryImpl implements OTAvailabilityRespository 
 
     @Override
     public OTAvailability create(OTAvailability otAvailability) {
-        return null;
+        this.OTAvailabilityRepositories.add(otAvailability);
+        return otAvailability;
     }
 
     @Override
     public OTAvailability update(OTAvailability otAvailability) {
+        String id = String.valueOf(otAvailability.getOTBooked());
+        OTAvailability pFind = findOTAvailability(id);
+        OTAvailabilityRepositories.remove(pFind);
+        OTAvailabilityRepositories.add(otAvailability);
         return null;
     }
 
     @Override
     public void delete(String s) {
-
+        OTAvailability OTA = findOTAvailability(s);
+        OTAvailabilityRepositories.remove(OTA);
     }
 
     @Override
     public OTAvailability read(String s) {
-        return null;
+        OTAvailability OTA = findOTAvailability(s);
+        return OTA == null ? null : OTA;
     }
 }
