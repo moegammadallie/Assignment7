@@ -27,6 +27,8 @@ public class OccupationalTherapistRepositoryImplTest {
 
     @Test
     public void create() {
+        this.repository.create(null);
+        Assert.assertEquals(null, null);
     }
 
     @Test

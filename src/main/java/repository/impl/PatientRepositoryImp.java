@@ -41,8 +41,15 @@ public class PatientRepositoryImp implements PatientRepository {
 
     }
 
+    private Patient findPatient(String patient){
+        return this.PatientRepositorys.stream()
+                .filter(Patient -> Patient.getPatientID().trim()
+                .equals(Patient)).findAny().orElse(null);
+    }
+
     @Override
     public Patient read(String s) {
-        return null;
+        Patient patient = findPatient(s);
+        return patient == null ? null : patient;
     }
 }
