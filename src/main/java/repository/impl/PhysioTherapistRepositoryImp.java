@@ -22,26 +22,40 @@ public class PhysioTherapistRepositoryImp implements PhysioTherapistRepository {
 
     @Override
     public Set<PhysioTherapist> getAll() {
-        return null;
+        return PhysioTherapistRepositorys;
     }
 
     @Override
     public PhysioTherapist create(PhysioTherapist physioTherapist) {
-        return null;
+        this.PhysioTherapistRepositorys.add(physioTherapist);
+        return physioTherapist;
     }
 
     @Override
     public PhysioTherapist update(PhysioTherapist physioTherapist) {
+        String id = physioTherapist.getQualification();
+        PhysioTherapist ptFind = findPhysioTherapist(id);
+        PhysioTherapistRepositorys.remove(ptFind);
+        PhysioTherapistRepositorys.add(physioTherapist);
+
         return null;
     }
 
     @Override
     public void delete(String s) {
+        PhysioTherapist physioTherapist = findPhysioTherapist(s);
+        PhysioTherapistRepositorys.remove(physioTherapist);
+    }
 
+    private PhysioTherapist findPhysioTherapist(String physioTherapist){
+        return this.PhysioTherapistRepositorys.stream()
+                .filter(PhysioTherapist -> PhysioTherapist.getQualification().trim()
+                .equals(PhysioTherapist)).findAny().orElse(null);
     }
 
     @Override
     public PhysioTherapist read(String s) {
-        return null;
+        PhysioTherapist physioTherapist = findPhysioTherapist(s);
+        return physioTherapist == null ? null : physioTherapist;
     }
 }

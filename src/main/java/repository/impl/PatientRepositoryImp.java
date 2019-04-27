@@ -33,18 +33,23 @@ public class PatientRepositoryImp implements PatientRepository {
 
     @Override
     public Patient update(Patient patient) {
+        String id = patient.getPatientID();
+        Patient pFind = findPatient(id);
+        PatientRepositorys.remove(pFind);
+        PatientRepositorys.add(patient);
         return null;
     }
 
     @Override
     public void delete(String s) {
-
+        Patient patient = findPatient(s);
+        PatientRepositorys.remove(patient);
     }
 
     private Patient findPatient(String patient){
         return this.PatientRepositorys.stream()
-                .filter(Patient -> Patient.getPatientID().trim()
-                .equals(Patient)).findAny().orElse(null);
+            .filter(Patient -> Patient.getPatientID().trim()
+            .equals(Patient)).findAny().orElse(null);
     }
 
     @Override
