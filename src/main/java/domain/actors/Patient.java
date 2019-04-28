@@ -3,7 +3,8 @@ package domain.actors;
 public class Patient extends Person {
     private String patientID;
 
-    private Patient(){};
+    private Patient(){}
+    
     private Patient(Builder builder){
         this.patientID = builder.patientID;
     }
