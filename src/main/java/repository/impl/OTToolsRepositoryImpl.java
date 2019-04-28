@@ -28,7 +28,7 @@ public class OTToolsRepositoryImpl implements OTToolsRepository {
 
     private OTTools findOTTools(String OTT){
         return this.OTToolsRepositorys.stream()
-            .filter(MedicalAid -> Objects.equals(MedicalAid.getOTToolCode(), MedicalAid))
+            .filter(OTTools -> Objects.equals(OTTools.getOTToolCode(), OTTools))
             .findAny().orElse(null);
     }
 
