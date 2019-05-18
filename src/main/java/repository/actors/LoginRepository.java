@@ -1,6 +1,7 @@
-package repository;
+package repository.actors;
 
 import domain.actors.Login;
+import repository.IRepository;
 
 import java.util.Set;
 

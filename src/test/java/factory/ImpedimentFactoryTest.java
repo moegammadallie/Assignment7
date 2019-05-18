@@ -1,6 +1,7 @@
 package factory;
 
 import domain.patientInfo.Impediment;
+import factory.patientInfo.ImpedimentFactory;
 import org.junit.Assert;
 import org.junit.Test;
 

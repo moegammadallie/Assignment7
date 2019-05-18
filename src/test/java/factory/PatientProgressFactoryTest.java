@@ -1,6 +1,7 @@
 package factory;
 
 import domain.patientInfo.PatientProgress;
+import factory.patientInfo.PatientProgressFactory;
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -1,6 +1,7 @@
 package factory;
 
 import domain.patientInfo.PatientAppointment;
+import factory.patientInfo.PatientAppointmentFactory;
 import org.junit.Assert;
 import org.junit.Test;
 

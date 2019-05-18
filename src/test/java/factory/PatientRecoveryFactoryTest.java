@@ -1,6 +1,7 @@
 package factory;
 
 import domain.patientInfo.PatientRecovery;
+import factory.patientInfo.PatientRecoveryFactory;
 import org.junit.Assert;
 import org.junit.Test;
 

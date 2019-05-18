@@ -1,4 +1,4 @@
-package factory;
+package factory.patientInfo;
 
 //public class PatientTreatmentFactory {
 //    public static PatientTreatment getTreatmentStartDate(Date treatmentStartDate){

@@ -1,6 +1,7 @@
-package repository;
+package repository.billing;
 
 import domain.billing.MedicalAid;
+import repository.IRepository;
 
 import java.util.Set;
 
