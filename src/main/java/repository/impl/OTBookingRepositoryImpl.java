@@ -1,7 +1,7 @@
 package repository.impl;
 
 import domain.occupational.OTBooking;
-import repository.OTBookingRepository;
+import repository.occupational.OTBookingRepository;
 
 import java.util.HashSet;
 import java.util.Set;

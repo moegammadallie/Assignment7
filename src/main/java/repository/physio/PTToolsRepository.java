@@ -1,6 +1,7 @@
-package repository;
+package repository.physio;
 
 import domain.physio.PTTools;
+import repository.IRepository;
 
 import java.util.Set;
 

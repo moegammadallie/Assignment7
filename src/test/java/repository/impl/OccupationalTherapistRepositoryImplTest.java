@@ -4,7 +4,7 @@ import domain.occupational.OccupationalTherapist;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import repository.OccupationalTherapistRepository;
+import repository.occupational.OccupationalTherapistRepository;
 
 import java.util.Set;
 

@@ -1,7 +1,7 @@
 package repository.impl;
 
 import domain.patientInfo.Patient;
-import repository.PatientRepository;
+import repository.patientInfo.PatientRepository;
 
 import java.util.HashSet;
 import java.util.Set;

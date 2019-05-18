@@ -1,7 +1,7 @@
 package repository.impl;
 
 import domain.physio.PTSchedule;
-import repository.PTScheduleRepository;
+import repository.physio.PTScheduleRepository;
 
 import java.text.Format;
 import java.text.SimpleDateFormat;

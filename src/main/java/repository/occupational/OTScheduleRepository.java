@@ -1,6 +1,7 @@
-package repository;
+package repository.occupational;
 
 import domain.occupational.OTSchedule;
+import repository.IRepository;
 
 import java.util.Set;
 

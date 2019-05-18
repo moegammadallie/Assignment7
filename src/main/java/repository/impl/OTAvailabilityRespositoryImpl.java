@@ -1,7 +1,7 @@
 package repository.impl;
 
 import domain.occupational.OTAvailability;
-import repository.OTAvailabilityRespository;
+import repository.occupational.OTAvailabilityRespository;
 
 import java.util.HashSet;
 import java.util.Set;

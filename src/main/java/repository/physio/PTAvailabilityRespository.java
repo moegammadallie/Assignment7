@@ -1,6 +1,7 @@
-package repository;
+package repository.physio;
 
 import domain.physio.PTAvailability;
+import repository.IRepository;
 
 import java.util.Set;
 

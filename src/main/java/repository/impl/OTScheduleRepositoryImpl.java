@@ -1,7 +1,7 @@
 package repository.impl;
 
 import domain.occupational.OTSchedule;
-import repository.OTScheduleRepository;
+import repository.occupational.OTScheduleRepository;
 
 import java.text.Format;
 import java.text.SimpleDateFormat;

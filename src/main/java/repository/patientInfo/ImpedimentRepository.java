@@ -1,6 +1,7 @@
-package repository;
+package repository.patientInfo;
 
 import domain.patientInfo.Impediment;
+import repository.IRepository;
 
 import java.util.Set;
 

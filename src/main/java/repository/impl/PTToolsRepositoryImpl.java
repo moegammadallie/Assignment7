@@ -1,7 +1,7 @@
 package repository.impl;
 
 import domain.physio.PTTools;
-import repository.PTToolsRepository;
+import repository.physio.PTToolsRepository;
 
 import java.util.HashSet;
 import java.util.Objects;

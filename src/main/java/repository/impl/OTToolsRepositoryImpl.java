@@ -1,7 +1,7 @@
 package repository.impl;
 
 import domain.occupational.OTTools;
-import repository.OTToolsRepository;
+import repository.occupational.OTToolsRepository;
 
 import java.util.HashSet;
 import java.util.Objects;

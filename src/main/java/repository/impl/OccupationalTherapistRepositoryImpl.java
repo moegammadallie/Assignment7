@@ -1,7 +1,7 @@
 package repository.impl;
 
 import domain.occupational.OccupationalTherapist;
-import repository.OccupationalTherapistRepository;
+import repository.occupational.OccupationalTherapistRepository;
 
 import java.util.HashSet;
 import java.util.Set;

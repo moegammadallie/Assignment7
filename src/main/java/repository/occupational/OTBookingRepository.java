@@ -1,6 +1,7 @@
-package repository;
+package repository.occupational;
 
 import domain.occupational.OTBooking;
+import repository.IRepository;
 
 import java.util.Set;
 

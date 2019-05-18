@@ -1,7 +1,7 @@
 package repository.impl;
 
 import domain.physio.PTBooking;
-import repository.PTBookingRepository;
+import repository.physio.PTBookingRepository;
 
 import java.util.HashSet;
 import java.util.Set;

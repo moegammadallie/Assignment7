@@ -1,7 +1,7 @@
 package repository.impl;
 
 import domain.physio.PTAvailability;
-import repository.PTAvailabilityRespository;
+import repository.physio.PTAvailabilityRespository;
 
 import java.util.HashSet;
 import java.util.Set;

@@ -1,7 +1,7 @@
 package repository.impl;
 
 import domain.physio.PhysioTherapist;
-import repository.PhysioTherapistRepository;
+import repository.physio.PhysioTherapistRepository;
 
 import java.util.HashSet;
 import java.util.Set;
