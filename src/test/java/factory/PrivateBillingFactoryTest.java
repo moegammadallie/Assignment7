@@ -1,10 +1,9 @@
 package factory;
 
-import domain.services.PrivateBilling;
+import domain.billing.PrivateBilling;
+import factory.billing.PrivateBillingFactory;
 import org.junit.Assert;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class PrivateBillingFactoryTest {
 

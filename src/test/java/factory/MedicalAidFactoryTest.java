@@ -1,10 +1,9 @@
 package factory;
 
-import domain.services.MedicalAid;
+import domain.billing.MedicalAid;
+import factory.billing.MedicalAidFactory;
 import org.junit.Assert;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class MedicalAidFactoryTest {
 

@@ -1,6 +1,6 @@
 package repository.impl;
 
-import domain.services.Login;
+import domain.actors.Login;
 import repository.LoginRepository;
 
 import java.util.HashSet;

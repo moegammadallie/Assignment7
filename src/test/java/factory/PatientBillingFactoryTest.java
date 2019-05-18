@@ -1,11 +1,9 @@
 package factory;
 
-import domain.actors.Patient;
-import domain.services.PatientBilling;
+import domain.billing.PatientBilling;
+import factory.billing.PatientBillingFactory;
 import org.junit.Assert;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class PatientBillingFactoryTest {
 

@@ -1,6 +1,6 @@
 package repository;
 
-import domain.services.PTSchedule;
+import domain.physio.PTSchedule;
 
 import java.util.Set;
 

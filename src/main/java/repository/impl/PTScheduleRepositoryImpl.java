@@ -1,6 +1,6 @@
 package repository.impl;
 
-import domain.services.PTSchedule;
+import domain.physio.PTSchedule;
 import repository.PTScheduleRepository;
 
 import java.text.Format;

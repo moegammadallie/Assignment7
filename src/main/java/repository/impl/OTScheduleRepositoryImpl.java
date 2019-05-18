@@ -1,6 +1,6 @@
 package repository.impl;
 
-import domain.services.OTSchedule;
+import domain.occupational.OTSchedule;
 import repository.OTScheduleRepository;
 
 import java.text.Format;

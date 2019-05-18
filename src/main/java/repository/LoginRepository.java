@@ -1,7 +1,6 @@
 package repository;
 
-import domain.services.Login;
-import repository.IRepository;
+import domain.actors.Login;
 
 import java.util.Set;
 

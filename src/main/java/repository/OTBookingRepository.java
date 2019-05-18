@@ -1,6 +1,6 @@
 package repository;
 
-import domain.services.OTBooking;
+import domain.occupational.OTBooking;
 
 import java.util.Set;
 

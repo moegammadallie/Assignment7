@@ -1,10 +1,9 @@
 package factory;
 
-import domain.actors.PhysioTherapist;
+import domain.physio.PhysioTherapist;
+import factory.physio.PhysioTherapistFactory;
 import org.junit.Assert;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class PhysioTherapistFactoryTest {
 

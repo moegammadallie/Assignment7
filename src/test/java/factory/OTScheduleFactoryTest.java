@@ -1,10 +1,9 @@
 package factory;
 
-import domain.services.OTSchedule;
+import domain.occupational.OTSchedule;
+import factory.occupational.OTScheduleFactory;
 import org.junit.Assert;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class OTScheduleFactoryTest {
 

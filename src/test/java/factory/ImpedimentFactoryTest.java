@@ -1,10 +1,8 @@
 package factory;
 
-import domain.services.Impediment;
+import domain.patientInfo.Impediment;
 import org.junit.Assert;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class ImpedimentFactoryTest {
 

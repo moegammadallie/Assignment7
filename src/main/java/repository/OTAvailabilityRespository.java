@@ -1,6 +1,6 @@
 package repository;
 
-import domain.services.OTAvailability;
+import domain.occupational.OTAvailability;
 
 import java.util.Set;
 

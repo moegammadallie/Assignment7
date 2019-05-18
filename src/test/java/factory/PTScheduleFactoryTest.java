@@ -1,10 +1,9 @@
 package factory;
 
-import domain.services.PTSchedule;
+import domain.physio.PTSchedule;
+import factory.physio.PTScheduleFactory;
 import org.junit.Assert;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class PTScheduleFactoryTest {
 

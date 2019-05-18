@@ -1,6 +1,6 @@
 package repository.impl;
 
-import domain.services.Impediment;
+import domain.patientInfo.Impediment;
 import repository.ImpedimentRepository;
 
 import java.util.HashSet;

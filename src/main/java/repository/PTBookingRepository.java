@@ -1,6 +1,6 @@
 package repository;
 
-import domain.services.PTBooking;
+import domain.physio.PTBooking;
 
 import java.util.Set;
 

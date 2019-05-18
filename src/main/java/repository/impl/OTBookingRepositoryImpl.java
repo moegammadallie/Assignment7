@@ -1,6 +1,6 @@
 package repository.impl;
 
-import domain.services.OTBooking;
+import domain.occupational.OTBooking;
 import repository.OTBookingRepository;
 
 import java.util.HashSet;

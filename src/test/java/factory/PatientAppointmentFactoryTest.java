@@ -1,10 +1,8 @@
 package factory;
 
-import domain.services.PatientAppointment;
+import domain.patientInfo.PatientAppointment;
 import org.junit.Assert;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class PatientAppointmentFactoryTest {
 

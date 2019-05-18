@@ -1,6 +1,6 @@
 package repository.impl;
 
-import domain.actors.PhysioTherapist;
+import domain.physio.PhysioTherapist;
 import repository.PhysioTherapistRepository;
 
 import java.util.HashSet;

@@ -1,6 +1,6 @@
 package repository;
 
-import domain.services.OTTools;
+import domain.occupational.OTTools;
 
 import java.util.Set;
 

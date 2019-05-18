@@ -1,7 +1,7 @@
 package domain.actors;
 
-import domain.services.PersonAge;
-import domain.services.PersonName;
+import domain.patientInfo.PersonAge;
+import domain.patientInfo.PersonName;
 
 public class Person implements PersonName, PersonAge {
     String gender;

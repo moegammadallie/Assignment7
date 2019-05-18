@@ -1,6 +1,6 @@
 package repository.impl;
 
-import domain.actors.OccupationalTherapist;
+import domain.occupational.OccupationalTherapist;
 import repository.OccupationalTherapistRepository;
 
 import java.util.HashSet;

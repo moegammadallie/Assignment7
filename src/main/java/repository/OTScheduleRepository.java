@@ -1,6 +1,6 @@
 package repository;
 
-import domain.services.OTSchedule;
+import domain.occupational.OTSchedule;
 
 import java.util.Set;
 

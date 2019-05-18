@@ -1,14 +1,12 @@
 package repository.impl;
 
-import domain.actors.OccupationalTherapist;
+import domain.occupational.OccupationalTherapist;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import repository.OccupationalTherapistRepository;
 
 import java.util.Set;
-
-import static org.junit.Assert.*;
 
 public class OccupationalTherapistRepositoryImplTest {
 

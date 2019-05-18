@@ -1,6 +1,6 @@
 package factory;
 
-import domain.services.PatientDiagnosis;
+import domain.patientInfo.PatientDiagnosis;
 
 import java.util.Date;
 

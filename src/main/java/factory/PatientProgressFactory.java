@@ -1,6 +1,6 @@
 package factory;
 
-import domain.services.PatientProgress;
+import domain.patientInfo.PatientProgress;
 
 public class PatientProgressFactory {
     public static PatientProgress getProgress(String progres){

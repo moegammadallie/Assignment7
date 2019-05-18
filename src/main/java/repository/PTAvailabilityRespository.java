@@ -1,6 +1,6 @@
 package repository;
 
-import domain.services.PTAvailability;
+import domain.physio.PTAvailability;
 
 import java.util.Set;
 

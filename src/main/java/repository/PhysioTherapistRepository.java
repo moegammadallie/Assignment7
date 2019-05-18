@@ -1,6 +1,6 @@
 package repository;
 
-import domain.actors.PhysioTherapist;
+import domain.physio.PhysioTherapist;
 
 import java.util.Set;
 

@@ -1,11 +1,9 @@
 package factory;
 
-import domain.actors.Patient;
-import domain.services.OTBooking;
+import domain.occupational.OTBooking;
+import factory.occupational.OTBookingFactory;
 import org.junit.Assert;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class OTBookingFactoryTest {
 

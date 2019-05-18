@@ -1,6 +1,6 @@
 package factory;
 
-import domain.services.Impediment;
+import domain.patientInfo.Impediment;
 
 public class ImpedimentFactory {
     public static Impediment getImpedimentName(String impedimentName) {

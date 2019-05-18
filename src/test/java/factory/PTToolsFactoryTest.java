@@ -1,10 +1,9 @@
 package factory;
 
-import domain.services.PTTools;
+import domain.physio.PTTools;
+import factory.physio.PTToolsFactory;
 import org.junit.Assert;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class PTToolsFactoryTest {
 

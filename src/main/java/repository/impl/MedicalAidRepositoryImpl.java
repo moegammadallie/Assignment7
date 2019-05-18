@@ -1,6 +1,6 @@
 package repository.impl;
 
-import domain.services.MedicalAid;
+import domain.billing.MedicalAid;
 import repository.MedicalAidRepository;
 
 import java.util.HashSet;

@@ -1,6 +1,6 @@
 package factory;
 
-import domain.services.PatientRecovery;
+import domain.patientInfo.PatientRecovery;
 
 public class PatientRecoveryFactory {
     public static PatientRecovery getEstTime(String estTime){

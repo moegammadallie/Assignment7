@@ -1,10 +1,8 @@
 package factory;
 
-import domain.services.PatientDiagnosis;
+import domain.patientInfo.PatientDiagnosis;
 import org.junit.Assert;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class PatientDiagnosisFactoryTest {
 

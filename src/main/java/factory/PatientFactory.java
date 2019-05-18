@@ -1,6 +1,6 @@
 package factory;
 
-import domain.actors.Patient;
+import domain.patientInfo.Patient;
 
 public class PatientFactory {
         public static Patient getPatientID(String patientID){

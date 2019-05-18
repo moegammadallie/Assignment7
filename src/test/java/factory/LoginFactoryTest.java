@@ -1,10 +1,9 @@
 package factory;
 
-import domain.services.Login;
+import domain.actors.Login;
+import factory.actors.LoginFactory;
 import org.junit.Assert;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class LoginFactoryTest {
 
