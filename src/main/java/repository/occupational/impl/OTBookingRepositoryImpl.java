@@ -1,4 +1,4 @@
-package repository.impl;
+package repository.occupational.impl;
 
 import domain.occupational.OTBooking;
 import repository.occupational.OTBookingRepository;

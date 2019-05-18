@@ -1,4 +1,4 @@
-package repository.impl;
+package repository.physio.impl;
 
 import domain.physio.PTBooking;
 import repository.physio.PTBookingRepository;

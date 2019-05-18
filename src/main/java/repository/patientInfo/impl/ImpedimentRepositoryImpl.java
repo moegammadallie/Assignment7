@@ -1,4 +1,4 @@
-package repository.impl;
+package repository.patientInfo.impl;
 
 import domain.patientInfo.Impediment;
 import repository.patientInfo.ImpedimentRepository;

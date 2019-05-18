@@ -1,4 +1,4 @@
-package repository.impl;
+package repository.physio.impl;
 
 import domain.physio.PTTools;
 import repository.physio.PTToolsRepository;

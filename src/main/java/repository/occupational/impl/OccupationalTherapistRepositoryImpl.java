@@ -1,4 +1,4 @@
-package repository.impl;
+package repository.occupational.impl;
 
 import domain.occupational.OccupationalTherapist;
 import repository.occupational.OccupationalTherapistRepository;

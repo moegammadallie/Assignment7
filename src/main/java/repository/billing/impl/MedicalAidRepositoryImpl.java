@@ -1,4 +1,4 @@
-package repository.impl;
+package repository.billing.impl;
 
 import domain.billing.MedicalAid;
 import repository.billing.MedicalAidRepository;

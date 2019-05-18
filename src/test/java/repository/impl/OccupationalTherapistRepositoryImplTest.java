@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import repository.occupational.OccupationalTherapistRepository;
+import repository.occupational.impl.OccupationalTherapistRepositoryImpl;
 
 import java.util.Set;
 

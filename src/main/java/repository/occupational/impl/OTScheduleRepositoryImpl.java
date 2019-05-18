@@ -1,4 +1,4 @@
-package repository.impl;
+package repository.occupational.impl;
 
 import domain.occupational.OTSchedule;
 import repository.occupational.OTScheduleRepository;

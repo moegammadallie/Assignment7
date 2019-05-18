@@ -1,4 +1,4 @@
-package repository.impl;
+package repository.actors.impl;
 
 import domain.actors.Login;
 import repository.actors.LoginRepository;
