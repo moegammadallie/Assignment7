@@ -1,11 +1,11 @@
-package repository.impl;
+package repository;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class LoginRepositoryImplTest {
+public class PhysioTherapistRepositoryImpTest {
 
     @Before
     public void setUp() throws Exception {

@@ -1,4 +1,4 @@
-package repository.impl;
+package repository;
 
 import domain.occupational.OccupationalTherapist;
 import org.junit.Assert;

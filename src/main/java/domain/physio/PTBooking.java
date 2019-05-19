@@ -17,7 +17,7 @@ public class PTBooking {
     public static class Builder{
         private Patient patientDetails;
 
-        public Builder patientDetails(String patientDetails){
+        public Builder patientDetails(Patient patientDetails){
             this.patientDetails = patientDetails;
             return this;
         }

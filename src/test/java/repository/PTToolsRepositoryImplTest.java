@@ -1,11 +1,11 @@
-package repository.impl;
+package repository;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class PhysioTherapistRepositoryImpTest {
+public class PTToolsRepositoryImplTest {
 
     @Before
     public void setUp() throws Exception {
@@ -25,9 +25,5 @@ public class PhysioTherapistRepositoryImpTest {
 
     @Test
     public void delete() {
-    }
-
-    @Test
-    public void read() {
     }
 }
