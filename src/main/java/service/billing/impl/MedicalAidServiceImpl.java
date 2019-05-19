@@ -1,6 +1,8 @@
 package service.billing.impl;
 
 import domain.billing.MedicalAid;
+import repository.billing.MedicalAidRepository;
+import repository.billing.impl.MedicalAidRepositoryImpl;
 import service.billing.MedicalAidService;
 
 import java.util.HashSet;
@@ -8,55 +10,40 @@ import java.util.Objects;
 import java.util.Set;
 
 public class MedicalAidServiceImpl implements MedicalAidService {
-
-    private static MedicalAidServiceImpl repository = null;
-    private Set<MedicalAid> MedicalAidRepositorys;
+    private static MedicalAidServiceImpl service = null;
+    private MedicalAidRepository repository;
 
     private MedicalAidServiceImpl() {
-        this.MedicalAidRepositorys = new HashSet<>();
+        this.repository = MedicalAidRepositoryImpl.getRepository();
     }
 
-    public static MedicalAidService getRepository(){
-        if(repository == null) repository = new MedicalAidServiceImpl();
-        return repository;
-    }
-
-    private MedicalAid findMedicalAid(String medAid){
-        return this.MedicalAidRepositorys.stream()
-                .filter(MedicalAid -> Objects.equals(MedicalAid.getMedicalAidNum(), MedicalAid)).findAny().orElse(null);
+    public static MedicalAidServiceImpl getService(){
+        if(service == null) service = new MedicalAidServiceImpl();
+        return service;
     }
 
     @Override
     public Set<MedicalAid> getAll() {
-        return MedicalAidRepositorys;
+        return this.repository.getAll();
     }
 
     @Override
     public MedicalAid create(MedicalAid medicalAid) {
-        this.MedicalAidRepositorys.add(medicalAid);
-        return medicalAid;
+        return this.repository.create(medicalAid);
     }
 
     @Override
     public MedicalAid update(MedicalAid medicalAid) {
-        String id = Integer.toString(medicalAid.getMedicalAidNum());
-        MedicalAid pFind = findMedicalAid(id);
-        MedicalAidRepositorys.remove(pFind);
-        MedicalAidRepositorys.add(medicalAid);
-        return null;
+        return this.repository.update(medicalAid);
     }
 
     @Override
     public void delete(String s) {
-        MedicalAid medicalAid = findMedicalAid(s);
-        MedicalAidRepositorys.remove(medicalAid);
+        this.repository.delete(s);
     }
 
     @Override
     public MedicalAid read(String s) {
-        MedicalAid medicalAid = findMedicalAid(s);
-        return medicalAid == null ? null : medicalAid;
+        return this.repository.read(s);
     }
-
-
 }

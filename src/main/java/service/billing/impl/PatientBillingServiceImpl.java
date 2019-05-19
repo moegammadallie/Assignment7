@@ -1,6 +1,8 @@
 package service.billing.impl;
 
 import domain.billing.PatientBilling;
+import repository.billing.PatientBillingRepository;
+import repository.billing.impl.PatientBillingRepositoryImpl;
 import service.billing.PatientBillingService;
 
 import java.util.HashSet;
@@ -9,52 +11,40 @@ import java.util.Set;
 
 public class PatientBillingServiceImpl implements PatientBillingService {
 
-    private static PatientBillingServiceImpl repository = null;
-    private Set<PatientBilling> PatientBillingRepositorys;
+    private static PatientBillingServiceImpl service = null;
+    private PatientBillingRepository repository;
 
     private PatientBillingServiceImpl() {
-        this.PatientBillingRepositorys = new HashSet<>();
+        this.repository = PatientBillingRepositoryImpl.getRepository();
     }
 
-    public static PatientBillingService getRepository(){
-        if(repository == null) repository = new PatientBillingServiceImpl();
-        return repository;
-    }
-
-    private PatientBilling findPatientBilling(String medAid){
-        return this.PatientBillingRepositorys.stream()
-                .filter(PatientBilling -> Objects.equals(PatientBilling.getClass(), PatientBilling)).findAny().orElse(null);
+    public static PatientBillingServiceImpl getService() {
+        if (service == null) service = new PatientBillingServiceImpl();
+        return service;
     }
 
     @Override
     public Set<PatientBilling> getAll() {
-        return PatientBillingRepositorys;
+        return this.repository.getAll();
     }
 
     @Override
     public PatientBilling create(PatientBilling patientBilling) {
-        this.PatientBillingRepositorys.add(patientBilling);
-        return patientBilling;
+        return this.repository.create(patientBilling);
     }
 
     @Override
     public PatientBilling update(PatientBilling patientBilling) {
-        String id = Integer.toString(patientBilling.getHours());
-        PatientBilling pFind = findPatientBilling(id);
-        PatientBillingRepositorys.remove(pFind);
-        PatientBillingRepositorys.add(patientBilling);
-        return null;
+        return this.repository.update(patientBilling);
     }
 
     @Override
     public void delete(String s) {
-        PatientBilling patientBilling = findPatientBilling(s);
-        PatientBillingRepositorys.remove(patientBilling);
+        this.repository.delete(s);
     }
 
     @Override
     public PatientBilling read(String s) {
-        PatientBilling patientBilling = findPatientBilling(s);
-        return patientBilling == null ? null : patientBilling;
+        return this.repository.read(s);
     }
 }

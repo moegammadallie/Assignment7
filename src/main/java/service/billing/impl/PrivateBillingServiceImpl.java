@@ -1,6 +1,8 @@
 package service.billing.impl;
 
 import domain.billing.PrivateBilling;
+import repository.billing.PrivateBillingRepository;
+import repository.billing.impl.PrivateBillingRepositoryImpl;
 import service.billing.PrivateBillingService;
 
 import java.util.HashSet;
@@ -8,53 +10,40 @@ import java.util.Set;
 
 public class PrivateBillingServiceImpl implements PrivateBillingService {
 
-    private static PrivateBillingServiceImpl repository = null;
-    private Set<PrivateBilling> PrivateBillingRepositorys;
+    private static PrivateBillingServiceImpl service = null;
+    private PrivateBillingRepository repository;
 
     private PrivateBillingServiceImpl() {
-        this.PrivateBillingRepositorys = new HashSet<>();
+        this.repository = PrivateBillingRepositoryImpl.getRepository();
     }
 
-    public static PrivateBillingService getRepository(){
-        if(repository == null) repository = new PrivateBillingServiceImpl();
-        return repository;
+    public static PrivateBillingServiceImpl getService() {
+        if (service == null) service = new PrivateBillingServiceImpl();
+        return service;
     }
 
     @Override
     public Set<PrivateBilling> getAll() {
-        return PrivateBillingRepositorys;
+        return this.repository.getAll();
     }
 
     @Override
     public PrivateBilling create(PrivateBilling privateBilling) {
-        this.PrivateBillingRepositorys.add(privateBilling);
-        return privateBilling;
-    }
-
-    private PrivateBilling findPrivateBilling(String privateBilling){
-        return this.PrivateBillingRepositorys.stream()
-                .filter(PrivateBilling -> PrivateBilling.getPaymentMethod().trim()
-                        .equals(PrivateBilling)).findAny().orElse(null);
+        return this.repository.create(privateBilling);
     }
 
     @Override
     public PrivateBilling update(PrivateBilling privateBilling) {
-        String id = privateBilling.getPaymentMethod();
-        PrivateBilling pFind = findPrivateBilling(id);
-        PrivateBillingRepositorys.remove(pFind);
-        PrivateBillingRepositorys.add(privateBilling);
-        return null;
+        return this.repository.update(privateBilling);
     }
 
     @Override
     public void delete(String s) {
-        PrivateBilling privateBilling = findPrivateBilling(s);
-        PrivateBillingRepositorys.remove(privateBilling);
+        this.repository.delete(s);
     }
 
     @Override
     public PrivateBilling read(String s) {
-        PrivateBilling privateBilling = findPrivateBilling(s);
-        return privateBilling == null ? null : privateBilling;
+        return this.repository.read(s);
     }
 }
