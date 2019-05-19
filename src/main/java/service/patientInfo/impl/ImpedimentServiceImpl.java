@@ -1,6 +1,8 @@
 package service.patientInfo.impl;
 
 import domain.patientInfo.Impediment;
+import repository.patientInfo.ImpedimentRepository;
+import repository.patientInfo.impl.ImpedimentRepositoryImpl;
 import service.patientInfo.ImpedimentService;
 
 import java.util.HashSet;
@@ -8,52 +10,40 @@ import java.util.Set;
 
 public class ImpedimentServiceImpl implements ImpedimentService {
 
-    private static ImpedimentServiceImpl repository = null;
-    private Set<Impediment> ImpedimentRepositorys;
+    private static ImpedimentServiceImpl service = null;
+    private ImpedimentRepository repository;
 
     private ImpedimentServiceImpl() {
-        this.ImpedimentRepositorys = new HashSet<>();
+        this.repository = ImpedimentRepositoryImpl.getRepository();
     }
 
-    public static ImpedimentService getRepository(){
-        if(repository == null) repository = new ImpedimentServiceImpl();
-        return repository;
+    public static ImpedimentServiceImpl getService(){
+        if(service == null) service = new ImpedimentServiceImpl();
+        return service;
     }
 
     @Override
     public Set<Impediment> getAll() {
-        return ImpedimentRepositorys;
+        return this.repository.getAll();
     }
 
     @Override
-    public Impediment create(Impediment impediment) {
-        this.ImpedimentRepositorys.add(impediment);
-        return impediment;
+    public Impediment create(Impediment impe) {
+        return this.repository.create(impe);
     }
 
-    private Impediment findImpediment(String impediment){
-        return this.ImpedimentRepositorys.stream()
-                .filter(Impediment -> Impediment.getImpedimentCode().trim()
-                        .equals(Impediment)).findAny().orElse(null);
-    }
     @Override
-    public Impediment update(Impediment impediment) {
-        String id = impediment.getImpedimentCode();
-        Impediment pFind = findImpediment(id);
-        ImpedimentRepositorys.remove(pFind);
-        ImpedimentRepositorys.add(impediment);
-        return null;
+    public Impediment update(Impediment impe) {
+        return this.repository.update(impe);
     }
 
     @Override
     public void delete(String s) {
-        Impediment impediment = findImpediment(s);
-        ImpedimentRepositorys.remove(impediment);
+        this.repository.delete(s);
     }
 
     @Override
     public Impediment read(String s) {
-        Impediment impediment = findImpediment(s);
-        return impediment == null ? null : impediment;
+        return this.repository.read(s);
     }
 }

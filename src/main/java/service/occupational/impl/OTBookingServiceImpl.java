@@ -1,6 +1,8 @@
 package service.occupational.impl;
 
 import domain.occupational.OTBooking;
+import repository.occupational.OTBookingRepository;
+import repository.occupational.impl.OTBookingRepositoryImpl;
 import service.occupational.OTBookingService;
 
 import java.util.HashSet;
@@ -8,54 +10,40 @@ import java.util.Set;
 
 public class OTBookingServiceImpl implements OTBookingService {
 
-    private static OTBookingServiceImpl repository = null;
-    private Set<OTBooking> OTBookingRepositorys;
+    private static OTBookingServiceImpl service = null;
+    private OTBookingRepository repository;
 
     private OTBookingServiceImpl() {
-        this.OTBookingRepositorys = new HashSet<>();
+        this.repository = OTBookingRepositoryImpl.getRepository();
     }
 
-    public static OTBookingService getRepository(){
-        if(repository == null) repository = new OTBookingServiceImpl();
-        return repository;
-    }
-
-    private OTBooking findOTBooking(String OTB){
-        return this.OTBookingRepositorys.stream()
-                .filter(OTBooking -> OTBooking.getOTPatientDetails().trim()
-                .equals(OTBooking)).findAny().orElse(null);
+    public static OTBookingServiceImpl getService(){
+        if(service == null) service = new OTBookingServiceImpl();
+        return service;
     }
 
     @Override
     public Set<OTBooking> getAll() {
-        return OTBookingRepositorys;
+        return this.repository.getAll();
     }
 
     @Override
-    public OTBooking create(OTBooking otBooking) {
-        this.OTBookingRepositorys.add(otBooking);
-        return otBooking;
+    public OTBooking create(OTBooking oTBooking) {
+        return this.repository.create(oTBooking);
     }
 
     @Override
-    public OTBooking update(OTBooking otBooking) {
-        String id = otBooking.getOTPatientDetails();
-        OTBooking pFind = findOTBooking(id);
-        OTBookingRepositorys.remove(pFind);
-        OTBookingRepositorys.add(otBooking);
-        return null;
+    public OTBooking update(OTBooking oTBooking) {
+        return this.repository.update(oTBooking);
     }
 
     @Override
     public void delete(String s) {
-        OTBooking otBooking = findOTBooking(s);
-        OTBookingRepositorys.remove(otBooking);
-
+        this.repository.delete(s);
     }
 
     @Override
     public OTBooking read(String s) {
-        OTBooking otBooking = findOTBooking(s);
-        return otBooking == null ? null : otBooking;
+        return this.repository.read(s);
     }
 }

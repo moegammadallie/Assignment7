@@ -1,6 +1,8 @@
 package service.occupational.impl;
 
 import domain.occupational.OTTools;
+import repository.occupational.OTToolsRepository;
+import repository.occupational.impl.OTToolsRepositoryImpl;
 import service.occupational.OTToolsService;
 
 import java.util.HashSet;
@@ -9,53 +11,40 @@ import java.util.Set;
 
 public class OTToolsServiceImpl implements OTToolsService {
 
-    private static OTToolsServiceImpl repository = null;
-    private Set<OTTools> OTToolsRepositorys;
+    private static OTToolsServiceImpl service = null;
+    private OTToolsRepository repository;
 
     private OTToolsServiceImpl() {
-        this.OTToolsRepositorys = new HashSet<>();
+        this.repository = OTToolsRepositoryImpl.getRepository();
     }
 
-    public static OTToolsService getRepository(){
-        if(repository == null) repository = new OTToolsServiceImpl();
-        return repository;
+    public static OTToolsServiceImpl getService(){
+        if(service == null) service = new OTToolsServiceImpl();
+        return service;
     }
 
     @Override
     public Set<OTTools> getAll() {
-        return OTToolsRepositorys;
-    }
-
-    private OTTools findOTTools(String OTT){
-        return this.OTToolsRepositorys.stream()
-            .filter(OTTools -> Objects.equals(OTTools.getOTToolCode(), OTTools))
-            .findAny().orElse(null);
+        return this.repository.getAll();
     }
 
     @Override
-    public OTTools create(OTTools otTools) {
-        this.OTToolsRepositorys.add(otTools);
-        return otTools;
+    public OTTools create(OTTools login) {
+        return this.repository.create(login);
     }
 
     @Override
-    public OTTools update(OTTools otTools) {
-        String id = Integer.toString(otTools.getOTToolCode());
-        OTTools pFind = findOTTools(id);
-        OTToolsRepositorys.remove(pFind);
-        OTToolsRepositorys.add(otTools);
-        return null;
+    public OTTools update(OTTools ott) {
+        return this.repository.update(ott);
     }
 
     @Override
     public void delete(String s) {
-        OTTools OTT = findOTTools(s);
-        OTToolsRepositorys.remove(OTT);
+        this.repository.delete(s);
     }
 
     @Override
     public OTTools read(String s) {
-        OTTools ott = findOTTools(s);
-        return ott == null ? null : ott;
+        return this.repository.read(s);
     }
 }

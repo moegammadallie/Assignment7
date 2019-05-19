@@ -1,6 +1,8 @@
 package service.patientInfo.impl;
 
 import domain.patientInfo.PatientRecovery;
+import repository.patientInfo.PatientRecoveryRepository;
+import repository.patientInfo.impl.PatientRecoveryRepositoryImpl;
 import service.patientInfo.PatientRecoveryService;
 
 import java.util.HashSet;
@@ -8,53 +10,40 @@ import java.util.Set;
 
 public class PatientRecoveryServiceImpl implements PatientRecoveryService {
 
-    private static PatientRecoveryServiceImpl repository = null;
-    private Set<PatientRecovery> PatientRecoveryRepositorys;
+    private static PatientRecoveryServiceImpl service = null;
+    private PatientRecoveryRepository repository;
 
     private PatientRecoveryServiceImpl() {
-        this.PatientRecoveryRepositorys = new HashSet<>();
+        this.repository = PatientRecoveryRepositoryImpl.getRepository();
     }
 
-    public static PatientRecoveryService getRepository(){
-        if(repository == null) repository = new PatientRecoveryServiceImpl();
-        return repository;
+    public static PatientRecoveryServiceImpl getService(){
+        if(service == null) service = new PatientRecoveryServiceImpl();
+        return service;
     }
 
     @Override
     public Set<PatientRecovery> getAll() {
-        return PatientRecoveryRepositorys;
+        return this.repository.getAll();
     }
 
     @Override
-    public PatientRecovery create(PatientRecovery patientProgress) {
-        this.PatientRecoveryRepositorys.add(patientProgress);
-        return patientProgress;
+    public PatientRecovery create(PatientRecovery pr) {
+        return this.repository.create(pr);
     }
 
     @Override
-    public PatientRecovery update(PatientRecovery patientRecovery) {
-        String id = patientRecovery.getRecoveryDescrip();
-        PatientRecovery pFind = findPatientRecovery(id);
-        PatientRecoveryRepositorys.remove(pFind);
-        PatientRecoveryRepositorys.add(patientRecovery);
-        return null;
+    public PatientRecovery update(PatientRecovery pr) {
+        return this.repository.update(pr);
     }
 
     @Override
     public void delete(String s) {
-        PatientRecovery patientProgress = findPatientRecovery(s);
-        PatientRecoveryRepositorys.remove(patientProgress);
-    }
-
-    private PatientRecovery findPatientRecovery(String patientRecovery){
-        return this.PatientRecoveryRepositorys.stream()
-                .filter(PatientProgress -> PatientProgress.getRecoveryDescrip().trim()
-                        .equals(PatientProgress)).findAny().orElse(null);
+        this.repository.delete(s);
     }
 
     @Override
     public PatientRecovery read(String s) {
-        PatientRecovery patientRecovery = findPatientRecovery(s);
-        return patientRecovery == null ? null : patientRecovery;
+        return this.repository.read(s);
     }
 }

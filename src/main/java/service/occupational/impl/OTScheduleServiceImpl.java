@@ -1,6 +1,8 @@
 package service.occupational.impl;
 
 import domain.occupational.OTSchedule;
+import repository.occupational.OTScheduleRepository;
+import repository.occupational.impl.OTScheduleRepositoryImpl;
 import service.occupational.OTScheduleService;
 
 import java.text.Format;
@@ -10,55 +12,40 @@ import java.util.Set;
 
 public class OTScheduleServiceImpl implements OTScheduleService {
 
-    private static OTScheduleServiceImpl repository = null;
-    private Set<OTSchedule> OTScheduleRepositorys;
+    private static OTScheduleServiceImpl service = null;
+    private OTScheduleRepository repository;
 
     private OTScheduleServiceImpl() {
-        this.OTScheduleRepositorys = new HashSet<>();
+        this.repository = OTScheduleRepositoryImpl.getRepository();
     }
 
-    public static OTScheduleService getRepository(){
-        if(repository == null) repository = new OTScheduleServiceImpl();
-        return repository;
-    }
-
-    private OTSchedule findOTSchedule(String OTS){
-        return this.OTScheduleRepositorys.stream()
-                .filter(OTSchedule -> OTSchedule.getOTDate()
-                        .equals(OTSchedule)).findAny().orElse(null);
+    public static OTScheduleServiceImpl getServiceOTSchedule(){
+        if(service == null) service = new OTScheduleServiceImpl();
+        return service;
     }
 
     @Override
     public Set<OTSchedule> getAll() {
-        return OTScheduleRepositorys;
+        return this.repository.getAll();
     }
 
     @Override
-    public OTSchedule create(OTSchedule otSchedule) {
-        this.OTScheduleRepositorys.add(otSchedule);
-        return otSchedule;
+    public OTSchedule create(OTSchedule oTSchedule) {
+        return this.repository.create(oTSchedule);
     }
 
     @Override
-    public OTSchedule update(OTSchedule otSchedule) {
-        Format formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String id = formatter.format(otSchedule.getOTDate());
-
-        OTSchedule pFind = findOTSchedule(id);
-        OTScheduleRepositorys.remove(pFind);
-        OTScheduleRepositorys.add(otSchedule);
-        return null;
+    public OTSchedule update(OTSchedule oTSchedule) {
+        return this.repository.update(oTSchedule);
     }
 
     @Override
     public void delete(String s) {
-        OTSchedule OTS = findOTSchedule(s);
-        OTScheduleRepositorys.remove(OTS);
+        this.repository.delete(s);
     }
 
     @Override
     public OTSchedule read(String s) {
-        OTSchedule OTS = findOTSchedule(s);
-        return OTS == null ? null : OTS;
+        return this.repository.read(s);
     }
 }

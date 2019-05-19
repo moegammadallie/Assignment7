@@ -1,59 +1,48 @@
 package service.patientInfo.impl;
 
 import domain.patientInfo.PatientDiagnosis;
+import repository.patientInfo.PatientDiagnosisRepository;
+import repository.patientInfo.impl.PatientDiagnosisRepositoryImpl;
 import service.patientInfo.PatientDiagnosisService;
 
 import java.util.HashSet;
 import java.util.Set;
 
 public class PatientDiagnosisServiceImpl implements PatientDiagnosisService {
-    private static PatientDiagnosisServiceImpl repository = null;
-    private Set<PatientDiagnosis>  PatientDiagnosisRepositorys;
+    private static PatientDiagnosisServiceImpl service = null;
+    private PatientDiagnosisRepository repository;
 
     private PatientDiagnosisServiceImpl() {
-        this.PatientDiagnosisRepositorys = new HashSet<>();
+        this.repository = PatientDiagnosisRepositoryImpl.getRepository();
     }
 
-    public static PatientDiagnosisService getRepository(){
-        if(repository == null) repository = new PatientDiagnosisServiceImpl();
-        return repository;
+    public static PatientDiagnosisServiceImpl getService(){
+        if(service == null) service = new PatientDiagnosisServiceImpl();
+        return service;
     }
 
     @Override
     public Set<PatientDiagnosis> getAll() {
-        return PatientDiagnosisRepositorys;
+        return this.repository.getAll();
     }
 
     @Override
-    public PatientDiagnosis create(PatientDiagnosis patientDiagnosis) {
-        this.PatientDiagnosisRepositorys.add(patientDiagnosis);
-        return patientDiagnosis;
+    public PatientDiagnosis create(PatientDiagnosis pd) {
+        return this.repository.create(pd);
     }
 
     @Override
-    public PatientDiagnosis update(PatientDiagnosis patientDiagnosis) {
-        String id = patientDiagnosis.getDoctorDiagnosed();
-        PatientDiagnosis pFind = findPatientDiagnosis(id);
-        PatientDiagnosisRepositorys.remove(pFind);
-        PatientDiagnosisRepositorys.add(patientDiagnosis);
-        return null;
+    public PatientDiagnosis update(PatientDiagnosis pd) {
+        return this.repository.update(pd);
     }
 
     @Override
     public void delete(String s) {
-        PatientDiagnosis patient = findPatientDiagnosis(s);
-        PatientDiagnosisRepositorys.remove(patient);
-    }
-
-    private PatientDiagnosis findPatientDiagnosis(String patientDiagnosis){
-        return this.PatientDiagnosisRepositorys.stream()
-                .filter(PatientDiagnosis -> PatientDiagnosis.getDoctorDiagnosed().trim()
-                        .equals(PatientDiagnosis)).findAny().orElse(null);
+        this.repository.delete(s);
     }
 
     @Override
     public PatientDiagnosis read(String s) {
-        PatientDiagnosis patientDiagnosis = findPatientDiagnosis(s);
-        return patientDiagnosis == null ? null : patientDiagnosis;
+        return this.repository.read(s);
     }
 }

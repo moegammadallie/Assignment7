@@ -1,6 +1,8 @@
 package service.patientInfo.impl;
 
 import domain.patientInfo.Patient;
+import repository.patientInfo.PatientRepository;
+import repository.patientInfo.impl.PatientRepositoryImp;
 import service.patientInfo.PatientService;
 
 import java.util.HashSet;
@@ -8,53 +10,40 @@ import java.util.Set;
 
 public class PatientServiceImp implements PatientService {
 
-    private static PatientServiceImp repository = null;
-    private Set<Patient> PatientRepositorys;
+    private static PatientServiceImp service = null;
+    private PatientRepository repository;
 
     private PatientServiceImp() {
-        this.PatientRepositorys = new HashSet<>();
+        this.repository = PatientRepositoryImp.getRepository();
     }
 
-    public static PatientService getRepository(){
-        if(repository == null) repository = new PatientServiceImp();
-        return repository;
+    public static PatientServiceImp getService(){
+        if(service == null) service = new PatientServiceImp();
+        return service;
     }
 
     @Override
     public Set<Patient> getAll() {
-        return PatientRepositorys;
+        return this.repository.getAll();
     }
 
     @Override
     public Patient create(Patient patient) {
-        this.PatientRepositorys.add(patient);
-        return patient;
+        return this.repository.create(patient);
     }
 
     @Override
     public Patient update(Patient patient) {
-        String id = patient.getPatientID();
-        Patient pFind = findPatient(id);
-        PatientRepositorys.remove(pFind);
-        PatientRepositorys.add(patient);
-        return null;
+        return this.repository.update(patient);
     }
 
     @Override
     public void delete(String s) {
-        Patient patient = findPatient(s);
-        PatientRepositorys.remove(patient);
-    }
-
-    private Patient findPatient(String patient){
-        return this.PatientRepositorys.stream()
-            .filter(Patient -> Patient.getPatientID().trim()
-            .equals(Patient)).findAny().orElse(null);
+        this.repository.delete(s);
     }
 
     @Override
     public Patient read(String s) {
-        Patient patient = findPatient(s);
-        return patient == null ? null : patient;
+        return this.repository.read(s);
     }
 }
