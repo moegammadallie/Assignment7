@@ -1,6 +1,6 @@
-package service.actors;
+package service.access;
 
-import domain.actors.Login;
+import domain.access.Login;
 import service.IService;
 
 import java.util.Set;

@@ -1,7 +1,7 @@
-package repository.actors.impl;
+package repository.access.impl;
 
-import domain.actors.Login;
-import repository.actors.LoginRepository;
+import domain.access.Login;
+import repository.access.LoginRepository;
 
 import java.util.HashSet;
 import java.util.Set;

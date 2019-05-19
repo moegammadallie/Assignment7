@@ -1,4 +1,4 @@
-package domain.actors;
+package domain.access;
 
 public class Login {
     private String username;

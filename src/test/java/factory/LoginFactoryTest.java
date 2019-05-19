@@ -1,7 +1,7 @@
 package factory;
 
-import domain.actors.Login;
-import factory.actors.LoginFactory;
+import domain.access.Login;
+import factory.access.LoginFactory;
 import org.junit.Assert;
 import org.junit.Test;
 

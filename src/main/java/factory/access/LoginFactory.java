@@ -1,6 +1,6 @@
-package factory.actors;
+package factory.access;
 
-import domain.actors.Login;
+import domain.access.Login;
 
 public class LoginFactory {
     public static Login getUsername(String username){

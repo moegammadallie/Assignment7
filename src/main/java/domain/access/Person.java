@@ -1,4 +1,4 @@
-package domain.actors;
+package domain.access;
 
 import domain.patientInfo.PersonAge;
 import domain.patientInfo.PersonName;

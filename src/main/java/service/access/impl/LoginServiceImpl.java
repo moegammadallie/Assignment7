@@ -1,10 +1,9 @@
-package service.actors.impl;
+package service.access.impl;
 
-import domain.actors.Login;
-import org.graalvm.compiler.serviceprovider.ServiceProvider;
-import repository.actors.LoginRepository;
-import repository.actors.impl.LoginRepositoryImpl;
-import service.actors.LoginService;
+import domain.access.Login;
+import repository.access.LoginRepository;
+import repository.access.impl.LoginRepositoryImpl;
+import service.access.LoginService;
 
 
 import java.util.Set;

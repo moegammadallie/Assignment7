@@ -1,4 +1,4 @@
-package domain.actors;
+package domain.access;
 
 public class Therapist extends Person {
 

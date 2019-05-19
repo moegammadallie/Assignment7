@@ -1,6 +1,6 @@
 package domain.physio;
 
-import domain.actors.Therapist;
+import domain.access.Therapist;
 
 public class PhysioTherapist extends Therapist {
     private String qualification;

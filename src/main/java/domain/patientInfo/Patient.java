@@ -1,6 +1,6 @@
 package domain.patientInfo;
 
-import domain.actors.Person;
+import domain.access.Person;
 
 public class Patient extends Person {
     private String patientID;
