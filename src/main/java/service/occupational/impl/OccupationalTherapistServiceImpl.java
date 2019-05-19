@@ -1,6 +1,8 @@
 package service.occupational.impl;
 
 import domain.occupational.OccupationalTherapist;
+import repository.occupational.OccupationalTherapistRepository;
+import repository.occupational.impl.OccupationalTherapistRepositoryImpl;
 import service.occupational.OccupationalTherapistService;
 
 import java.util.HashSet;
@@ -8,48 +10,40 @@ import java.util.Set;
 
 public class OccupationalTherapistServiceImpl implements OccupationalTherapistService {
 
-    private static OccupationalTherapistServiceImpl repository = null;
-    private Set<OccupationalTherapist> OccupationalTherapists;
+    private static OccupationalTherapistServiceImpl service = null;
+    private OccupationalTherapistRepository repository;
 
     private OccupationalTherapistServiceImpl() {
-        this.OccupationalTherapists = new HashSet<>();
+        this.repository = OccupationalTherapistRepositoryImpl.getRepository();
     }
 
-    public static OccupationalTherapistService getRepository(){
-        if(repository == null) repository = new OccupationalTherapistServiceImpl();
-        return repository;
+    public static OccupationalTherapistServiceImpl getService(){
+        if(service == null) service = new OccupationalTherapistServiceImpl();
+        return service;
     }
 
     @Override
     public Set<OccupationalTherapist> getAll() {
-        return this.OccupationalTherapists;
+        return this.repository.getAll();
     }
 
     @Override
     public OccupationalTherapist create(OccupationalTherapist occupationalTherapist) {
-        this.OccupationalTherapists.add(occupationalTherapist);
-        return occupationalTherapist;
+        return this.repository.create(occupationalTherapist);
     }
 
     @Override
     public OccupationalTherapist update(OccupationalTherapist occupationalTherapist) {
-        return null;
+        return this.repository.update(occupationalTherapist);
     }
 
     @Override
     public void delete(String s) {
-
-    }
-
-    private OccupationalTherapist findOT(String OTQualification){
-        return this.OccupationalTherapists.stream()
-                .filter(OccupationalTherapist -> OccupationalTherapist.getQualification().trim()
-                .equals(OTQualification.trim())).findAny().orElse(null);
+        this.repository.delete(s);
     }
 
     @Override
     public OccupationalTherapist read(String s) {
-        OccupationalTherapist occupationalTherapist = findOT(s);
-        return occupationalTherapist == null ? null :occupationalTherapist;
+        return this.repository.read(s);
     }
 }
