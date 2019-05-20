@@ -26,11 +26,14 @@ public class PTAvailabilityRespositoryImpl implements PTAvailabilityRespository 
     }
 
     private PTAvailability findPTAvailability(String PTA){
-        return this.PTAvailabilityRepositories.stream()
+       return this.PTAvailabilityRepositories.stream()
                 .filter(PTAvailability -> PTAvailability.getPTBooked()
                         .equals(PTAvailability)).findAny().orElse(null);
     }
 
+    /*
+
+     */
     @Override
     public PTAvailability create(PTAvailability ptAvailability) {
         this.PTAvailabilityRepositories.add(ptAvailability);

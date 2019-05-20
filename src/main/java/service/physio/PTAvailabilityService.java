@@ -5,6 +5,6 @@ import service.IService;
 
 import java.util.Set;
 
-public interface PTAvailabilityRespository extends IService<PTAvailability, String> {
+public interface PTAvailabilityService extends IService<PTAvailability, String> {
     Set<PTAvailability> getAll();
 }

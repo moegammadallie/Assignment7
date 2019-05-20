@@ -1,6 +1,8 @@
 package service.physio.impl;
 
 import domain.physio.PhysioTherapist;
+import repository.physio.PhysioTherapistRepository;
+import repository.physio.impl.PhysioTherapistRepositoryImp;
 import service.physio.PhysioTherapistService;
 
 import java.util.HashSet;
@@ -8,54 +10,40 @@ import java.util.Set;
 
 public class PhysioTherapistServiceImp implements PhysioTherapistService {
 
-    private static PhysioTherapistServiceImp repository = null;
-    private Set<PhysioTherapist> PhysioTherapistRepositorys;
+    private static PhysioTherapistServiceImp service = null;
+    private PhysioTherapistRepository repository;
 
     private PhysioTherapistServiceImp() {
-        this.PhysioTherapistRepositorys = new HashSet<>();
+        this.repository = PhysioTherapistRepositoryImp.getRepository();
     }
 
-    public static PhysioTherapistService getRepository(){
-        if(repository == null) repository = new PhysioTherapistServiceImp();
-        return repository;
+    public static PhysioTherapistServiceImp getService(){
+        if(service == null) service = new PhysioTherapistServiceImp();
+        return service;
     }
 
     @Override
     public Set<PhysioTherapist> getAll() {
-        return PhysioTherapistRepositorys;
+        return this.repository.getAll();
     }
 
     @Override
-    public PhysioTherapist create(PhysioTherapist physioTherapist) {
-        this.PhysioTherapistRepositorys.add(physioTherapist);
-        return physioTherapist;
+    public PhysioTherapist create(PhysioTherapist pt) {
+        return this.repository.create(pt);
     }
 
     @Override
-    public PhysioTherapist update(PhysioTherapist physioTherapist) {
-        String id = physioTherapist.getQualification();
-        PhysioTherapist ptFind = findPhysioTherapist(id);
-        PhysioTherapistRepositorys.remove(ptFind);
-        PhysioTherapistRepositorys.add(physioTherapist);
-
-        return null;
+    public PhysioTherapist update(PhysioTherapist pt) {
+        return this.repository.update(pt);
     }
 
     @Override
     public void delete(String s) {
-        PhysioTherapist physioTherapist = findPhysioTherapist(s);
-        PhysioTherapistRepositorys.remove(physioTherapist);
-    }
-
-    private PhysioTherapist findPhysioTherapist(String physioTherapist){
-        return this.PhysioTherapistRepositorys.stream()
-                .filter(PhysioTherapist -> PhysioTherapist.getQualification().trim()
-                .equals(PhysioTherapist)).findAny().orElse(null);
+        this.repository.delete(s);
     }
 
     @Override
     public PhysioTherapist read(String s) {
-        PhysioTherapist physioTherapist = findPhysioTherapist(s);
-        return physioTherapist == null ? null : physioTherapist;
+        return this.repository.read(s);
     }
 }

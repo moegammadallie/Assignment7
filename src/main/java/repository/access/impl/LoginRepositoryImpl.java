@@ -29,7 +29,7 @@ public class LoginRepositoryImpl implements LoginRepository {
         return this.LoginRepositorys.stream()
                 .filter(Login -> Login.getUsername().trim()
                 .equals(Login)).findAny().orElse(null);
-    }
+//    }
 
     @Override
     public Login create(Login login) {
