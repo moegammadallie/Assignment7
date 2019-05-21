@@ -5,8 +5,11 @@ import ac.za.cput.project.repository.patientInfo.ImpedimentRepository;
 import ac.za.cput.project.repository.patientInfo.impl.ImpedimentRepositoryImpl;
 import ac.za.cput.project.service.patientInfo.ImpedimentService;
 
-import java.util.Set;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import java.util.Set;
+@Service("ImpedimentServiceImpl")
 public class ImpedimentServiceImpl implements ImpedimentService {
 
     private static ImpedimentServiceImpl service = null;

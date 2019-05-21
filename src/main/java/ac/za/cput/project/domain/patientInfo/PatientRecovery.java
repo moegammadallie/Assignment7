@@ -37,7 +37,7 @@ public class PatientRecovery {
 
     @Override
     public String toString() {
-        return "PatientRecovery{" +
+        return "PatientRecoveryController{" +
                 "estTime='" + estTime + '\'' +
                 ", recoveryDescrip='" + recoveryDescrip + '\'' +
                 '}';

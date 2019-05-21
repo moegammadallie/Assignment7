@@ -41,7 +41,7 @@ public class PTSchedule {
 
     @Override
     public String toString() {
-        return "PTSchedule{" +
+        return "PTScheduleController{" +
                 "date=" + date +
                 ", time=" + time +
                 '}';

@@ -28,7 +28,7 @@ public class OTAvailability {
 
     @Override
     public String toString() {
-        return "OTAvailability{" +
+        return "OTAvailabilityController{" +
                 "booked=" + booked +
                 '}';
     }

@@ -4,8 +4,11 @@ import ac.za.cput.project.domain.billing.MedicalAid;
 import ac.za.cput.project.repository.billing.MedicalAidRepository;
 import ac.za.cput.project.repository.billing.impl.MedicalAidRepositoryImpl;
 import ac.za.cput.project.service.billing.MedicalAidService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
+@Service("MedicalAidServiceImpl")
 
 public class MedicalAidServiceImpl implements MedicalAidService {
     private static MedicalAidServiceImpl service = null;

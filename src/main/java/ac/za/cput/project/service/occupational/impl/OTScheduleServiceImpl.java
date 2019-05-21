@@ -5,8 +5,11 @@ import ac.za.cput.project.repository.occupational.OTScheduleRepository;
 import ac.za.cput.project.repository.occupational.impl.OTScheduleRepositoryImpl;
 import ac.za.cput.project.service.occupational.OTScheduleService;
 
-import java.util.Set;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import java.util.Set;
+@Service("OTScheduleServiceImpl")
 public class OTScheduleServiceImpl implements OTScheduleService {
 
     private static OTScheduleServiceImpl service = null;

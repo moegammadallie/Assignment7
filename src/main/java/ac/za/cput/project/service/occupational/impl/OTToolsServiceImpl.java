@@ -5,8 +5,11 @@ import ac.za.cput.project.repository.occupational.OTToolsRepository;
 import ac.za.cput.project.repository.occupational.impl.OTToolsRepositoryImpl;
 import ac.za.cput.project.service.occupational.OTToolsService;
 
-import java.util.Set;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import java.util.Set;
+@Service("OTToolsServiceImpl")
 public class OTToolsServiceImpl implements OTToolsService {
 
     private static OTToolsServiceImpl service = null;

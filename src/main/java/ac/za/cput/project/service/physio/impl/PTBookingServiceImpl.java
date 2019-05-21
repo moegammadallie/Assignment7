@@ -1,59 +1,51 @@
 package ac.za.cput.project.service.physio.impl;
 
 import ac.za.cput.project.domain.physio.PTBooking;
+import ac.za.cput.project.repository.physio.PTBookingRepository;
+import ac.za.cput.project.repository.physio.impl.PTBookingRepositoryImpl;
 import ac.za.cput.project.service.physio.PTBookingService;
 
-import java.util.HashSet;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import java.util.Set;
 
+@Service("PTBookingServiceImpl")
 public class PTBookingServiceImpl implements PTBookingService {
 
-    private static PTBookingServiceImpl repository = null;
-    private Set<PTBooking> PTBookingRepositorys;
+    private static PTBookingServiceImpl service = null;
+    private PTBookingRepository repository;
 
     private PTBookingServiceImpl() {
-        this.PTBookingRepositorys = new HashSet<>();
+        this.repository = PTBookingRepositoryImpl.getRepository();
     }
 
-    public static PTBookingService getRepository(){
-        if(repository == null) repository = new PTBookingServiceImpl();
-        return repository;
-    }
-
-    private PTBooking findPTBooking(String PTB){
-        return this.PTBookingRepositorys.stream().filter(PTBooking -> PTBooking.getPTPatientDetails()
-            .equals(PTBooking)).findAny().orElse(null);
+    public static PTBookingServiceImpl getService(){
+        if(service == null) service = new PTBookingServiceImpl();
+        return service;
     }
 
     @Override
     public Set<PTBooking> getAll() {
-        return PTBookingRepositorys;
+        return this.repository.getAll();
     }
 
     @Override
-    public PTBooking create(PTBooking ptBooking) {
-        this.PTBookingRepositorys.add(ptBooking);
-        return ptBooking;
+    public PTBooking create(PTBooking ptb) {
+        return this.repository.create(ptb);
     }
 
     @Override
-    public PTBooking update(PTBooking ptBooking) {
-        String id = ptBooking.getPTPatientDetails().getPatientID();
-        PTBooking pFind = findPTBooking(id);
-        PTBookingRepositorys.remove(pFind);
-        PTBookingRepositorys.add(ptBooking);
-        return null;
+    public PTBooking update(PTBooking ptb) {
+        return this.repository.update(ptb);
     }
 
     @Override
     public void delete(String s) {
-        PTBooking ptBooking = findPTBooking(s);
-        PTBookingRepositorys.remove(ptBooking);
+        this.repository.delete(s);
     }
 
     @Override
     public PTBooking read(String s) {
-        PTBooking ptBooking = findPTBooking(s);
-        return ptBooking == null ? null : ptBooking;
+        return this.repository.read(s);
     }
 }

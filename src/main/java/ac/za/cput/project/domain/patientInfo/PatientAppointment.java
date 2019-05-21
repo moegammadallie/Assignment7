@@ -40,7 +40,7 @@ public class PatientAppointment {
 
     @Override
     public String toString() {
-        return "PatientAppointment{" +
+        return "PatientAppointmentController{" +
                 "appointmentDate=" + appointmentDate +
                 ", appointmentTime=" + appointmentTime +
                 '}';

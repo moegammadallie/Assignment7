@@ -51,7 +51,7 @@ public class OTTools {
 
     @Override
     public String toString() {
-        return "OTTools{" +
+        return "OTToolsController{" +
                 "toolCode=" + toolCode +
                 ", toolName='" + toolName + '\'' +
                 ", quantity=" + quantity +

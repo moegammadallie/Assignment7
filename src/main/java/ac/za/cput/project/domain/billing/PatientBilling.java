@@ -26,7 +26,7 @@ public class PatientBilling {
 
     @Override
     public String toString() {
-        return "PatientBilling{" +
+        return "PatientBillingController{" +
                 "hours=" + hours +
                 '}';
     }

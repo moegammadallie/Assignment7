@@ -26,7 +26,7 @@ public class MedicalAid {
 
     @Override
     public String toString() {
-        return "MedicalAid{" +
+        return "MedicalAidController{" +
                 "medicalAidNum=" + medicalAidNum +
                 '}';
     }

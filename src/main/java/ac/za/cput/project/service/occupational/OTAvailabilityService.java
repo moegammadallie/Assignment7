@@ -5,6 +5,6 @@ import ac.za.cput.project.service.IService;
 
 import java.util.Set;
 
-public interface OTAvailabilityRespository extends IService<OTAvailability, String> {
+public interface OTAvailabilityService extends IService<OTAvailability, String> {
     Set<OTAvailability> getAll();
 }

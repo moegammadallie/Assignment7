@@ -27,7 +27,7 @@ public class PTAvailability {
 
     @Override
     public String toString() {
-        return "PTAvailability{" +
+        return "PTAvailabilityController{" +
                 "booked=" + booked +
                 '}';
     }

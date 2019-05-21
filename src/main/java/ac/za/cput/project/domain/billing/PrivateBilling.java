@@ -26,7 +26,7 @@ public class PrivateBilling {
 
     @Override
     public String toString() {
-        return "PrivateBilling{" +
+        return "PrivateBillingController{" +
                 "paymentMethod='" + paymentMethod + '\'' +
                 '}';
     }

@@ -29,7 +29,7 @@ public class PTBooking {
 
     @Override
     public String toString() {
-        return "PTBooking{" +
+        return "PTBookingController{" +
                 "patientDetails=" + patientDetails +
                 '}';
     }

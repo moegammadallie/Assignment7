@@ -41,7 +41,7 @@ public class OTSchedule {
 
     @Override
     public String toString() {
-        return "OTSchedule{" +
+        return "OTScheduleController{" +
                 "date=" + date +
                 ", time=" + time +
                 '}';

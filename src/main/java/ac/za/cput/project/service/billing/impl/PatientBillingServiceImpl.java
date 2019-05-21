@@ -5,7 +5,11 @@ import ac.za.cput.project.repository.billing.PatientBillingRepository;
 import ac.za.cput.project.repository.billing.impl.PatientBillingRepositoryImpl;
 import ac.za.cput.project.service.billing.PatientBillingService;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.util.Set;
+@Service("PatientBillingServiceImpl")
 
 public class PatientBillingServiceImpl implements PatientBillingService {
 

@@ -5,8 +5,11 @@ import ac.za.cput.project.repository.patientInfo.PatientRecoveryRepository;
 import ac.za.cput.project.repository.patientInfo.impl.PatientRecoveryRepositoryImpl;
 import ac.za.cput.project.service.patientInfo.PatientRecoveryService;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import java.util.Set;
 
+@Service("PatientRecoveryServiceImpl")
 public class PatientRecoveryServiceImpl implements PatientRecoveryService {
 
     private static PatientRecoveryServiceImpl service = null;

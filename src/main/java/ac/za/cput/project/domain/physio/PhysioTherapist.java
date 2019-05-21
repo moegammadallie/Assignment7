@@ -29,7 +29,7 @@ public class PhysioTherapist extends Therapist {
 
     @Override
     public String toString() {
-        return "PhysioTherapist{" +
+        return "PhysioTherapistController{" +
                 "qualification='" + qualification + '\'' +
                 '}';
     }

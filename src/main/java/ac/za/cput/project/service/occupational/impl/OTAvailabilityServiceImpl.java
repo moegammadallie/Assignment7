@@ -3,8 +3,12 @@ package ac.za.cput.project.service.occupational.impl;
 import ac.za.cput.project.domain.occupational.OTAvailability;
 import ac.za.cput.project.repository.occupational.OTAvailabilityRespository;
 import ac.za.cput.project.repository.occupational.impl.OTAvailabilityRespositoryImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
+@Service("OTAvailabilityServiceImpl")
+
 
 public class OTAvailabilityServiceImpl implements OTAvailabilityRespository {
 

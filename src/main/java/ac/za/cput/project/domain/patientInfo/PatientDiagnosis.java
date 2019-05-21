@@ -50,7 +50,7 @@ public class PatientDiagnosis {
 
     @Override
     public String toString() {
-        return "PatientDiagnosis{" +
+        return "PatientDiagnosisController{" +
                 "dateOfDiagnosis=" + dateOfDiagnosis +
                 ", hospitalDiagnosed='" + hospitalDiagnosed + '\'' +
                 ", doctorDiagnosed='" + doctorDiagnosed + '\'' +

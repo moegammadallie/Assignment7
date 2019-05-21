@@ -5,7 +5,11 @@ import ac.za.cput.project.repository.billing.PrivateBillingRepository;
 import ac.za.cput.project.repository.billing.impl.PrivateBillingRepositoryImpl;
 import ac.za.cput.project.service.billing.PrivateBillingService;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.util.Set;
+@Service("PrivateBillingServiceImpl")
 
 public class PrivateBillingServiceImpl implements PrivateBillingService {
 

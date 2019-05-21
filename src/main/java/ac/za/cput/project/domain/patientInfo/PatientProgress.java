@@ -26,7 +26,7 @@ public class PatientProgress {
 
     @Override
     public String toString() {
-        return "PatientProgress{" +
+        return "PatientProgressController{" +
                 "progress='" + progress + '\'' +
                 '}';
     }

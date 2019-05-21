@@ -1,61 +1,51 @@
 package ac.za.cput.project.service.physio.impl;
 
 import ac.za.cput.project.domain.physio.PTTools;
+import ac.za.cput.project.repository.physio.PTToolsRepository;
+import ac.za.cput.project.repository.physio.impl.PTToolsRepositoryImpl;
 import ac.za.cput.project.service.physio.PTToolsService;
 
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import java.util.Set;
+@Service("PTToolsServiceImpl")
 public class PTToolsServiceImpl implements PTToolsService {
 
-    private static PTToolsServiceImpl repository = null;
-    private Set<PTTools> PTToolsRepositorys;
+    private static PTToolsServiceImpl service = null;
+    private PTToolsRepository repository;
 
     private PTToolsServiceImpl() {
-        this.PTToolsRepositorys = new HashSet<>();
+        this.repository = PTToolsRepositoryImpl.getRepository();
     }
 
-    public static PTToolsService getRepository(){
-        if(repository == null) repository = new PTToolsServiceImpl();
-        return repository;
+    public static PTToolsServiceImpl getService(){
+        if(service == null) service = new PTToolsServiceImpl();
+        return service;
     }
 
     @Override
     public Set<PTTools> getAll() {
-        return PTToolsRepositorys;
-    }
-
-    private PTTools findPTTools(String PTT){
-        return this.PTToolsRepositorys.stream()
-                .filter(PTTools -> Objects.equals(PTTools.getPTToolCode(), PTTools))
-                .findAny().orElse(null);
+        return this.repository.getAll();
     }
 
     @Override
-    public PTTools create(PTTools ptTools) {
-        this.PTToolsRepositorys.add(ptTools);
-        return ptTools;
+    public PTTools create(PTTools ptt) {
+        return this.repository.create(ptt);
     }
 
     @Override
-    public PTTools update(PTTools ptTools) {
-        String id = Integer.toString(ptTools.getPTToolCode());
-        PTTools pFind = findPTTools(id);
-        PTToolsRepositorys.remove(pFind);
-        PTToolsRepositorys.add(ptTools);
-        return null;
+    public PTTools update(PTTools ptt) {
+        return this.repository.update(ptt);
     }
 
     @Override
     public void delete(String s) {
-        PTTools PTT = findPTTools(s);
-        PTToolsRepositorys.remove(PTT);
+        this.repository.delete(s);
     }
 
     @Override
     public PTTools read(String s) {
-        PTTools ptt = findPTTools(s);
-        return ptt == null ? null : ptt;
+        return this.repository.read(s);
     }
 }

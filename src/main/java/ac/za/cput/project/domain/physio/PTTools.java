@@ -50,7 +50,7 @@ public class PTTools {
 
     @Override
     public String toString() {
-        return "PTTools{" +
+        return "PTToolsController{" +
                 "toolCode=" + toolCode +
                 ", toolName='" + toolName + '\'' +
                 ", quantity=" + quantity +

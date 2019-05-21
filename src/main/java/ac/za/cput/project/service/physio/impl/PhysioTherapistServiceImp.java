@@ -5,8 +5,11 @@ import ac.za.cput.project.repository.physio.PhysioTherapistRepository;
 import ac.za.cput.project.repository.physio.impl.PhysioTherapistRepositoryImp;
 import ac.za.cput.project.service.physio.PhysioTherapistService;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import java.util.Set;
 
+@Service("PhysioTherapistServiceImp")
 public class PhysioTherapistServiceImp implements PhysioTherapistService {
 
     private static PhysioTherapistServiceImp service = null;

@@ -50,7 +50,7 @@ public class Impediment {
 
     @Override
     public String toString() {
-        return "Impediment{" +
+        return "ImpedimentController{" +
                 "impedimentCode='" + impedimentCode + '\'' +
                 ", impedimentName='" + impedimentName + '\'' +
                 ", impedimentDescription='" + impedimentDescription + '\'' +

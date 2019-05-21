@@ -5,7 +5,11 @@ import ac.za.cput.project.repository.occupational.OTBookingRepository;
 import ac.za.cput.project.repository.occupational.impl.OTBookingRepositoryImpl;
 import ac.za.cput.project.service.occupational.OTBookingService;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.util.Set;
+@Service("OTBookingServiceImpl")
 
 public class OTBookingServiceImpl implements OTBookingService {
 

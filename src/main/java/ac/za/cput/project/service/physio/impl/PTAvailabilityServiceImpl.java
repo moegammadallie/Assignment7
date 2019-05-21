@@ -5,8 +5,11 @@ import ac.za.cput.project.repository.physio.PTAvailabilityRespository;
 import ac.za.cput.project.repository.physio.impl.PTAvailabilityRespositoryImpl;
 import ac.za.cput.project.service.physio.PTAvailabilityService;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import java.util.Set;
 
+@Service("PTAvailabilityServiceImpl")
 public class PTAvailabilityServiceImpl implements PTAvailabilityService {
 
     private static PTAvailabilityServiceImpl service = null;

@@ -5,8 +5,11 @@ import ac.za.cput.project.repository.patientInfo.PatientDiagnosisRepository;
 import ac.za.cput.project.repository.patientInfo.impl.PatientDiagnosisRepositoryImpl;
 import ac.za.cput.project.service.patientInfo.PatientDiagnosisService;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import java.util.Set;
 
+@Service("PatientDiagnosisServiceImpl")
 public class PatientDiagnosisServiceImpl implements PatientDiagnosisService {
     private static PatientDiagnosisServiceImpl service = null;
     private PatientDiagnosisRepository repository;

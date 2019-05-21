@@ -29,7 +29,7 @@ public class Patient extends Person {
 
     @Override
     public String toString() {
-        return "Patient{" +
+        return "PatientController{" +
                 "patientID='" + patientID + '\'' +
                 '}';
     }

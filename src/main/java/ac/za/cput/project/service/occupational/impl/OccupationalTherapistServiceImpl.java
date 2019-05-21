@@ -5,7 +5,11 @@ import ac.za.cput.project.repository.occupational.OccupationalTherapistRepositor
 import ac.za.cput.project.repository.occupational.impl.OccupationalTherapistRepositoryImpl;
 import ac.za.cput.project.service.occupational.OccupationalTherapistService;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.util.Set;
+@Service("OccupationalTherapistServiceImpl")
 
 public class OccupationalTherapistServiceImpl implements OccupationalTherapistService {
 
