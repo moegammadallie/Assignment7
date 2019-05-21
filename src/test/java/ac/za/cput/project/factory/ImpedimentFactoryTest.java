@@ -9,7 +9,7 @@ public class ImpedimentFactoryTest {
 
     @Test
     public void getImpedimentName() {
-        String name = "ADP 3";
+        String name = "Adhd";
         Impediment i = ImpedimentFactory.getImpedimentName(name);
         System.out.println(i);
         Assert.assertNotNull(i.getImpedimentName());
@@ -17,7 +17,7 @@ public class ImpedimentFactoryTest {
 
     @Test
     public void getImpedimentCode() {
-        String code = "ADP 2";
+        String code = "low tone";
         Impediment i = ImpedimentFactory.getImpedimentCode(code);
         System.out.println(i);
         Assert.assertNotNull(i.getImpedimentCode());
@@ -25,7 +25,7 @@ public class ImpedimentFactoryTest {
 
     @Test
     public void getImpedimentDescription() {
-        String desc = "ADP 2";
+        String desc = "Work injury";
         Impediment i = ImpedimentFactory.getImpedimentDescription(desc);
         System.out.println(i);
         Assert.assertNotNull(i.getImpedimentDescription());
