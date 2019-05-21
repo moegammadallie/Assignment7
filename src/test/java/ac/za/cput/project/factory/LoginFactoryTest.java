@@ -9,7 +9,7 @@ public class LoginFactoryTest {
 
     @Test
     public void getUsername() {
-        String name = "ADP 3";
+        String name = "Dr Khan";
         Login l = LoginFactory.getUsername(name);
         System.out.println(l);
         Assert.assertNotNull(l.getUsername());
@@ -17,7 +17,7 @@ public class LoginFactoryTest {
 
     @Test
     public void getPassword() {
-        String name = "ADP 3";
+        String name = "password123";
         Login l = LoginFactory.getPassword(name);
         System.out.println(l);
         Assert.assertNotNull(l.getPassword());
