@@ -1,5 +1,6 @@
 package ac.za.cput.project.controller.physio;
 import ac.za.cput.project.domain.physio.PTAvailability;
+import ac.za.cput.project.service.physio.PTAvailabilityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;

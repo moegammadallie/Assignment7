@@ -1,5 +1,7 @@
 package ac.za.cput.project.controller.patientInfo;
 
+import ac.za.cput.project.domain.access.Person;
+
 public class PatientController extends Person {
     private String patientID;
 

@@ -21,13 +21,13 @@ public class PatientDiagnosisController {
     @PostMapping("/create")
     @ResponseBody
     public PatientDiagnosis create(PatientDiagnosis patientDiagnosis) {
-        return patientDiagnosisService.create(impediment);
+        return patientDiagnosisService.create(patientDiagnosis);
     }
 
     @PostMapping("/update")
     @ResponseBody
     public PatientDiagnosis update(PatientDiagnosis patientDiagnosis) {
-        return patientDiagnosisService.update(impediment);
+        return patientDiagnosisService.update(patientDiagnosis);
     }
 
     @GetMapping("/delete/{id}")

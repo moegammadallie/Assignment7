@@ -21,13 +21,13 @@ public class PatientAppointmentController {
     @PostMapping("/create")
     @ResponseBody
     public PatientAppointment create(PatientAppointment patientAppointment) {
-        return patientAppointmentService.create(impediment);
+        return patientAppointmentService.create(patientAppointment);
     }
 
     @PostMapping("/update")
     @ResponseBody
     public PatientAppointment update(PatientAppointment patientAppointment) {
-        return patientAppointmentService.update(impediment);
+        return patientAppointmentService.update(patientAppointment);
     }
 
     @GetMapping("/delete/{id}")

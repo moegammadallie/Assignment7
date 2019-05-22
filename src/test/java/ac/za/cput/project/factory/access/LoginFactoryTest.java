@@ -3,9 +3,11 @@ package ac.za.cput.project.factory.access;
 import ac.za.cput.project.domain.access.Login;
 import ac.za.cput.project.factory.access.LoginFactory;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 public class LoginFactoryTest {
+
 
     @Test
     public void getUsername() {

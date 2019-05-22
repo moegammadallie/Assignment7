@@ -1,5 +1,6 @@
 package ac.za.cput.project.controller.billing;
 
+import ac.za.cput.project.domain.billing.MedicalAid;
 import ac.za.cput.project.domain.billing.PatientBilling;
 import ac.za.cput.project.service.billing.PatientBillingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +44,7 @@ public class PatientBillingController {
 
     @GetMapping("/read/all")
     @ResponseBody
-    public Set<MedicalAid> getAll() {
+    public Set<PatientBilling> getAll() {
         return patientBillingService.getAll();
     }
 }
