@@ -20,6 +20,10 @@ public class Patient {
     private String address;
     private int age;
 
+    public Patient(){
+
+    }
+
     public Patient(String patientId, String firstName, String lastName, String telephone, String identityNumber, String address, int age) {
         this.patientId = patientId;
         this.firstName = firstName;

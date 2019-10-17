@@ -18,6 +18,10 @@ public class Physiotherapist {
     private String jobTitle;
     private String identityNumber;
 
+    public Physiotherapist(){
+
+    }
+
     public Physiotherapist(String employeeId, String firstName, String lastName, String jobTitle, String identityNumber) {
         this.employeeId = employeeId;
         this.firstName = firstName;

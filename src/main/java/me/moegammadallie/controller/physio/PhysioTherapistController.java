@@ -39,7 +39,7 @@ public class PhysioTherapistController {
         return physioTherapistService.read(id);
     }
 
-    @GetMapping("/read/all")
+    @GetMapping("/getall")
     public Set<Physiotherapist> getAll() {
         return physioTherapistService.getAll();
     }

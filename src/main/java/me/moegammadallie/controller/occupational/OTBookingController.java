@@ -41,7 +41,6 @@ public class OTBookingController {
     }
 
     @GetMapping("/getall")
-
     public Set<Booking> getAll() {
         return otBookingService.getAll();
     }
